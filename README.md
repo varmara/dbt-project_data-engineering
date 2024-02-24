@@ -1,2 +1,7 @@
-# dbt-project_data-engineering-zoomcamp-2024
-dbt project homework 4, Data Engineering Zoomcamp 2024
+# Week 4 Analytics Engineering
+
+dbt homework project at Data Engineering Zoomcamp 2024
+
+
+
+
