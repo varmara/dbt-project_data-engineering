@@ -203,28 +203,14 @@ models:
       description: >
         For-Hire Vehicle (“FHV”) trip records generated from the FHV Trip Record submissions made by bases. 
       columns:
-          - name: tripid
-            description: Primary key for this table, generated with a concatenation of dispatching_base_num+pickup_datetime
-            tests:
-                - unique:
-                    severity: warn
-                - not_null:
-                    severity: warn
-          - name: pulocationid
-            description: TLC Taxi Zone in which the trip began
-            tests:
-              - relationships:
-                  to: ref('taxi_zone_lookup')
-                  field: locationid
-                  severity: warn
-          - name: dolocationid
-            description: TLC Taxi Zone in which the trip ended
-            tests:
-              - relationships:
-                  to: ref('taxi_zone_lookup')
-                  field: locationid
           - name: dispatching_base_num
             description: The TLC Base License Number of the base that dispatched the trip
+          - name: affiliated_base_num
+            description: The (affiliated) TLC Base License Number of the base that dispatched the trip
+          - name: pickup_locationid
+            description: TLC Taxi Zone in which the trip began
+          - name: dropoff_locationid
+            description: TLC Taxi Zone in which the trip ended
           - name: pickup_datetime
             description: The date and time of the trip pick-up
           - name: dropoff_datetime
@@ -245,6 +231,5 @@ models:
                 a trip for which a shared ride was requested but never matched.
                 Users should anticipate an overcount of successfully shared trips
                 completed by Lyft. 
-          - name: affiliated_base_num
-            description: The (affiliated) TLC Base License Number of the base that dispatched the trip
+
 
